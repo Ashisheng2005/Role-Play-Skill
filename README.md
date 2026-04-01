@@ -1,4 +1,4 @@
-# Role Play Skill (妈/爸/奶奶/爷爷/老师)
+# Role Play Skill （角色扮演）
 
 ---
 
@@ -19,27 +19,55 @@
 
 ## 安装
 
-### 从 GitHub 安装（推荐）
+### 方式一：从 GitHub 安装（推荐）
 
 ```bash
 # 克隆仓库
-git clone https://github.com/Ashisheng2005/MomSkill.git
+git clone https://github.com/Ashisheng2005/Role-Play-Skill.git
 
-# 安装到插件目录
-cp -r MomSkill ~/.claude/plugins/mom
+# 进入目录
+cd Role-Play-Skill
 
-# 清理克隆目录（可选）
-rm -rf MomSkill
+# 安装到 skills 目录
+cp -r skills/roleplay ~/.claude/skills/
+
+# 复制插件配置
+mkdir -p ~/.claude/skills/roleplay/.claude-plugin
+cp .claude-plugin/* ~/.claude/skills/roleplay/.claude-plugin/
+
+# 在 settings.json 中注册 marketplace
+# 添加以下内容到 ~/.claude/settings.json 的 extraKnownMarketplaces 字段：
+# "roleplay": {
+#   "source": {
+#     "source": "directory",
+#     "path": "/home/repork/.claude/skills/roleplay"
+#   }
+# }
+
+# 重启 Claude Code 或运行 /reload-plugins
+```
+
+### 方式二：安装为本地 marketplace
+
+```bash
+# 克隆仓库
+git clone https://github.com/Ashisheng2005/Role-Play-Skill.git
+
+# 安装到本地 marketplace
+cp -r Role-Play-Skill ~/.claude/plugins/marketplaces/roleplay
+
+# 在 known_marketplaces.json 中注册（Claude Code 会自动处理）
+# 运行 /reload-plugins
 ```
 
 ### 更新
 
 ```bash
-# 进入插件目录更新
-cd ~/.claude/plugins/mom && git pull
+# 进入 skill 目录更新
+cd ~/.claude/skills/roleplay && git pull
 
 # 或者重新克隆（先删除旧版本）
-rm -rf ~/.claude/plugins/mom && git clone https://github.com/Ashisheng2005/MomSkill.git ~/.claude/plugins/mom
+rm -rf ~/.claude/skills/roleplay && git clone https://github.com/Ashisheng2005/Role-Play-Skill.git ~/.claude/skills/roleplay
 ```
 
 ## 快速开始
@@ -56,7 +84,7 @@ rm -rf ~/.claude/plugins/mom && git clone https://github.com/Ashisheng2005/MomSk
 
 ## 切换角色
 
-编辑 `skills/mom/references/personality.md` 开头的配置区，修改 `characterType`：
+编辑 `skills/roleplay/references/personality.md` 开头的配置区，修改 `characterType`：
 
 ```json
 {
@@ -91,7 +119,7 @@ rm -rf ~/.claude/plugins/mom && git clone https://github.com/Ashisheng2005/MomSk
 
 ## 自定义配置
 
-编辑 `skills/mom/references/personality.md` 开头的配置区：
+编辑 `skills/roleplay/references/personality.md` 开头的配置区：
 
 | 配置项 | 说明 |
 |--------|------|
@@ -109,7 +137,7 @@ rm -rf ~/.claude/plugins/mom && git clone https://github.com/Ashisheng2005/MomSk
 让角色学习你的说话风格！把对话样本放在：
 
 ```
-skills/mom/references/examples/
+skills/roleplay/references/examples/
 ├── 001_日常对话.md
 └── 002_工作沟通.md
 ```
@@ -161,14 +189,17 @@ skills/mom/references/examples/
 ## 文件结构
 
 ```
-MomSkill/
-├── .claude-plugin/plugin.json
-└── skills/mom/
-    ├── SKILL.md              # Skill 定义（通用模板）
-    └── references/
-        ├── personality.md    # 角色配置（支持多种角色）
-        └── examples/         # 语气学习样本
-            └── 001_示例样本.md
+RolePlaySkill/
+├── .claude-plugin/
+│   ├── plugin.json           # 插件清单
+│   └── marketplace.json      # Marketplace 配置
+├── skills/roleplay/
+│   ├── SKILL.md              # Skill 定义
+│   └── references/
+│       ├── personality.md    # 角色配置（支持多种角色）
+│       └── examples/          # 语气学习样本
+│           └── 001_示例样本.md
+└── README.md
 ```
 
 ## 创建自定义角色

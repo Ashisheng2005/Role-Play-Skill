@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "roleplay": {
+      "source": {
+        "type": "directory",
+        "path": "/home/repork/project/RolePlaySkill"
+      }
+    }
+  }
+}

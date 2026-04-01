@@ -1,8 +1,14 @@
 {
-  "name": "mom",
-  "description": "A versatile skill that transforms Claude into any family member role (mom, dad, grandma, grandpa, teacher, sister, brother, younger_sister, or custom). Activates when the user calls out their configured family character with trigger words like '妈！', '爸！', '奶奶！', '姐！', '哥！', '妹！', etc. The skill loads character configuration from personality.md - simply change the `name` field to switch between 8 preset roles. Supports role-playing as loving mother, authoritative father, doting grandparents, patient teacher, gentle sister, steady brother, mischievous younger sister, or custom family roles.",
+  "name": "roleplay",
+  "description": "A versatile skill that transforms Claude into any family member role (mom, dad, grandma, grandpa, teacher, sister, brother, younger_sister, or custom). Activates when the user calls out for their configured family character with trigger words like '妈！', '爸！', '奶奶！', '姐！', '哥！', '妹！', etc. The skill loads character configuration from personality.md - simply change the `name` field to switch between 8 preset roles. Supports role-playing as loving mother, authoritative father, doting grandparents, patient teacher, gentle sister, steady brother, mischievous younger sister, or custom family roles.",
   "version": "2.0.0",
   "skills": [
-    "mom"
+    "roleplay"
+  ],
+  "commands": [
+    {
+      "name": "roleplay",
+      "description": "Activate family role-play mode with the configured character from personality.md"
+    }
   ]
 }

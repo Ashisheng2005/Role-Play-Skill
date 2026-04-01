@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "roleplay",
+  "description": "A skill that transforms Claude into family member roles (mom, dad, grandma, grandpa, teacher, sister, brother, younger_sister)",
+  "owner": {
+    "name": "Ashisheng2005"
+  },
+  "plugins": [
+    {
+      "name": "roleplay",
+      "description": "Transforms Claude into family member roles. Activates when user calls out for their configured character (e.g., '妈！', '爸！', '奶奶！').",
+      "source": "./"
+    }
+  ]
+}
